@@ -1,0 +1,38 @@
+server:
+  port: 8091
+
+eureka:
+  client:
+    serviceUrl: #注册中心的注册地址
+      defaultZone: http://106.75.115.170:8090/eureka/
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #开启从注册中心动态创建路由的功能，利用微服务名进行路由
+          lowerCaseServiceId: true #w微服务名称小写呈现
+      routes:
+        - id: gn-web
+          uri: lb://gn-web
+          predicates:
+            - Path=/gn-web/**
+          filters:
+            - StripPrefix=1
+
+        - id: gn-gds
+          uri: lb://gn-gds
+          predicates:
+            - Path=/gn-gds/**
+          filters:
+            - StripPrefix=1
+
+        - id: gn-api
+          uri: lb://gn-api
+          predicates:
+            - Path=/gn-api/**
+          filters:
+            - StripPrefix=1
