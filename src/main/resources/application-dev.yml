@@ -19,9 +19,9 @@ spring:
           lowerCaseServiceId: true #w微服务名称小写呈现
       routes:
         - id: gn-web
-          uri: lb://gn-web
+          uri: lb://gn-web  #路由到的服务
           predicates:
-            - Path=/gn-web/**
+            - Path=/gn-web/**  #匹配到的路径
           filters:
             - StripPrefix=1
 
