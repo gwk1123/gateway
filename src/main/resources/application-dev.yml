@@ -21,20 +21,20 @@ spring:
         - id: gn-web
           uri: lb://gn-web  #路由到的服务
           predicates:
-            - Path=/gn-web/**  #匹配到的路径
+            - Path=/web/**  #匹配到的路径
           filters:
             - StripPrefix=1
 
         - id: gn-gds
           uri: lb://gn-gds
           predicates:
-            - Path=/gn-gds/**
+            - Path=/gds/**
           filters:
             - StripPrefix=1
 
         - id: gn-api
           uri: lb://gn-api
           predicates:
-            - Path=/gn-api/**
+            - Path=/api/**
           filters:
             - StripPrefix=1
