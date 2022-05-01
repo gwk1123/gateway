@@ -38,3 +38,10 @@ spring:
             - Path=/api/**
           filters:
             - StripPrefix=1
+
+        - id: gn-mp
+          uri: lb://gn-mp
+          predicates:
+            - Path=/mp/**
+          filters:
+            - StripPrefix=1
