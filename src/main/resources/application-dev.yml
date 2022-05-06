@@ -36,8 +36,8 @@ spring:
           uri: lb://gn-api
           predicates:
             - Path=/api/**
-          filters:
-            - StripPrefix=1
+#          filters:
+#            - StripPrefix=1
 
         - id: gn-mp
           uri: lb://gn-mp
