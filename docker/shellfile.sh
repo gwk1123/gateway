@@ -1,10 +1,10 @@
 
 #!/bin/sh
 web_path=/jar/gateway #定义 tomcat 的位置
-startup_path=/root/.jenkins/workspace/gateway/docker/startup.sh
-shutdown_path=/root/.jenkins/workspace/gateway/docker/shutdown.sh
-docker_path=/root/.jenkins/workspace/gateway/docker/Dockerfile
-project_web=/root/.jenkins/workspace/gateway/target/gateway-0.0.1-SNAPSHOT.jar #定义项目打包位置
+startup_path=/jenkins/workspace/gateway/docker/startup.sh
+shutdown_path=/jenkins/workspace/gateway/docker/shutdown.sh
+docker_path=/jenkins/workspace/gateway/docker/Dockerfile
+project_web=/jenkins/workspace/gateway/target/gateway-0.0.1-SNAPSHOT.jar #定义项目打包位置
 if [ -f $project_web ] ;then
 echo -- stop tomcat
 #kill tomcat pid
